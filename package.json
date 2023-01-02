@@ -1,6 +1,6 @@
 {
 	"name": "xq-confirm",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "基于Bootstrap5的Modal组件实现确认提示框，支持确认按钮、取消按钮的回调，同时也可以自动确认和自动取消，不依赖Jquery库文件和Vue、React等框架技术。",
 	"files": [
 		"dist"
@@ -34,7 +34,7 @@
 	],
 	"author": "xqkeji.cn",
 	"license": "SSPL-1.0",
-	"homepage": "https://xqkeji.cn/demo/xqconfirm",
+	"homepage": "https://xqkeji.cn/demo/xq-confirm",
 	"dependencies": {
 		"@popperjs/core": "^2.11.6",
 		"bootstrap": "^5.2.3",
