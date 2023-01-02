@@ -1,0 +1,152 @@
+<xq-include file="./partials/header.html" title="xq-confirm确认框演示页面"></xq-include>
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="card  p-0">
+                <div class="card-header">
+                    安装与使用
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>npm i xq-confirm</p>
+                        <p>在typescript代码或javascript代码中引入后使用</p>
+                        <p>import xqConfirm from 'xq-confirm';</p>
+                        <p class="link-danger">同时在相应的页面得引入bootstrap和bootstrap-icon</p>
+                    </blockquote>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.npmjs.com/package/xq-confirm" target="_blank" type="button" class="btn btn-primary">
+                        查看npm包信息
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="card p-0">
+                <div class="card-header">
+                    配置项信息
+                </div>
+                <div class="card-body">
+                    <pre class="mb-0">
+<code>{
+    type: 'alert',//默认只提示，要有确认按钮请使用'confirm'
+    size: 'modal-sm',
+    position: 'modal-dialog-centered',
+    title: '提示信息',//标题
+    content: '您确认要进行操作吗?',//内容
+    icon: 'info',//info信息，warn警告,danger危险
+    confirmButton: '确认',
+    cancelButton: '取消',
+    confirmButtonClass: 'btn-primary',
+    cancelButtonClass: 'btn-secondary',
+    confirm:()=> {},//确认回调方法
+    cancel:()=> {},//取消回调方法
+    // confirm|3000表示3秒后自动确认，cancel|3000表示3秒后自动取消
+    autoClose: false
+}</code></pre>
+                </div>
+            </div>
+        </div>  
+            
+            <div class="row justify-content-center  mt-3">
+                <div class="card p-0">
+                    <div class="card-header">
+                        默认确认框
+                    </div>
+                    <div class="card-body">
+<pre class="mb-0"><code>xqConfirm({
+//配置项信息
+})</code></pre>
+                    </div>
+                    <div class="card-footer">
+                        <button id="default" type="button" class="btn btn-primary">默认确认框</button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row justify-content-center  mt-3">
+                <div class="card p-0">
+                    <div class="card-header">
+                        自定义确认框
+                    </div>
+                    <div class="card-body">
+<pre class="mb-0"><code>xqConfirm({
+    'title':'自定义标题',
+    'content':'自定义内容'
+})</code></pre>
+                    </div>
+                    <div class="card-footer">
+                        <button id="custom" type="button" class="btn btn-primary">自定义确认框</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center  mt-3">
+                <div class="card p-0">
+                    <div class="card-header">
+                        设置图标类型
+                    </div>
+                    <div class="card-body">
+<pre class="mb-0"><code>xqConfirm({
+//或者warn,danger等，也可以指定bootstrap-icon，
+//例如："bi bi-info-square link-primary"
+    icon:'info'
+})</code></pre>
+                    </div>
+                    <div class="card-footer">
+                        <button id="info" type="button" class="btn btn-primary">信息图标</button>
+                        <button id="warning" type="button" class="btn btn-primary">警告图标</button>
+                        <button id="error" type="button" class="btn btn-primary">错误图标</button>
+                        <button id="bootstrap-icon" type="button" class="btn btn-primary">bootstrap-icon</button>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="row justify-content-center  mt-3">
+                <div class="card p-0">
+                    <div class="card-header">
+                        确认框与自动确认或自动取消
+                    </div>
+                    <div class="card-body">
+<pre class="mb-0"><code>xqConfirm({
+    type:'confirm',//默认为alert提示框
+    autoClose:'confirm|3000'//自动确认
+    //cancle|3000为自动取消，3000为3000毫秒，也就是3秒
+})</code></pre>
+                    </div>
+                    <div class="card-footer">
+                        <button id="confirm" type="button" class="btn btn-primary">确认框</button>
+                        <button id="autoCloseConfirm" type="button" class="btn btn-primary">自动确认</button>
+                        <button id="autoCloseCancel" type="button" class="btn btn-primary">自动取消</button>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            <div class="row justify-content-center  mt-3">
+                <div class="card p-0">
+                    <div class="card-header">
+                        确认或取消回调方法
+                    </div>
+                    <div class="card-body">
+<pre class="mb-0"><code>xqConfirm({
+    type:'confirm',
+    confirm:function(){
+        alert('点击了确认')
+    },
+    cancel:function(){
+        alert('点击了取消')
+    }
+})</code></pre>
+                    </div>
+                    <div class="card-footer">
+                        <button id="callback" type="button" class="btn btn-primary">确认回调与取消回调</button>
+                        
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+    
+   
+<xq-include file="./partials/footer.html"></xq-include>

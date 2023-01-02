@@ -1,0 +1,65 @@
+
+
+<script>
+    document.querySelector('#default').addEventListener('click',function(){
+        xqConfirm({
+
+        })
+    })
+    document.querySelector('#custom').addEventListener('click',function(){
+        xqConfirm({
+            'title':'自定义标题',
+            'content':'自定义内容'
+        })
+    })
+    document.querySelector('#info').addEventListener('click',function(){
+        xqConfirm({
+            icon:'info'
+        })
+    })
+    document.querySelector('#warning').addEventListener('click',function(){
+        xqConfirm({
+            icon:'warn'
+        })
+    })
+    document.querySelector('#error').addEventListener('click',function(){
+        xqConfirm({
+            icon:'error'
+        })
+    })
+    document.querySelector('#bootstrap-icon').addEventListener('click',function(){
+        xqConfirm({
+            icon:'bi bi-info-square link-primary'
+        })
+    })
+    document.querySelector('#confirm').addEventListener('click',function(){
+        xqConfirm({
+            type:'confirm'
+        })
+    })
+    document.querySelector('#autoCloseConfirm').addEventListener('click',function(){
+        xqConfirm({
+            type:'confirm',
+            autoClose:'confirm|3000'
+        })
+    })
+    document.querySelector('#autoCloseCancel').addEventListener('click',function(){
+        xqConfirm({
+            type:'confirm',
+            autoClose:'cancel|3000'
+        })
+    })
+    document.querySelector('#callback').addEventListener('click',function(){
+        xqConfirm({
+            type:'confirm',
+            confirm:function(){
+                alert('点击了确认')
+            },
+            cancel:function(){
+                alert('点击了取消')
+            }
+        })
+    })
+</script>
+</body>
+</html>
