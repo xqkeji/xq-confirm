@@ -1,5 +1,5 @@
 import { getOption,setOption } from "./xq-option"
-import { append } from "./xq-util"
+import { append } from "xq-util"
 const ICONS={
   info:'bi bi-info-circle-fill link-primary',
   warn:'bi bi-info-circle-fill link-warning',

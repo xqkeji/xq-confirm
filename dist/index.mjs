@@ -1,10 +1,12 @@
 /*!
- * xq-confirm v1.0.8 (https://xqkeji.cn/demo/xq-confirm)
+ * xq-confirm v1.0.9 (https://xqkeji.cn/demo/xq-confirm)
  * Author xqkeji.cn
  * LICENSE SSPL-1.0
  * Copyright 2023 xqkeji.cn
  */
- const template = '<div id="xq-bs-modal" class="modal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"><i></i><span>title</span></h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>Modal content.</p></div><div class="modal-footer"></div></div></div></div>';
+ import { append } from 'xq-util';
+
+const template = '<div id="xq-bs-modal" class="modal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"><i></i><span>title</span></h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>Modal content.</p></div><div class="modal-footer"></div></div></div></div>';
 const DEFAULT_OPTIONS = {
   id: "xq-bs-modal",
   type: "alert",
@@ -18,12 +20,15 @@ const DEFAULT_OPTIONS = {
   cancelButton: "\u53D6\u6D88",
   confirmButtonClass: "btn-primary",
   cancelButtonClass: "btn-secondary",
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   confirm: () => {
   },
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   cancel: () => {
   },
   backgroundDismiss: true,
   autoClose: false
+  // confirm|3000表示3秒后自动确认，cancel|3000表示3秒后自动取消
 };
 let confirmOptions = {};
 const setOption = (options = {}) => {
@@ -46,11 +51,6 @@ const getOption = (key) => {
     return String(modal.getAttribute(key));
   }
   return "";
-};
-
-const append = (element, dom) => {
-  const node = document.createRange().createContextualFragment(dom);
-  element.append(node);
 };
 
 const ICONS = {
