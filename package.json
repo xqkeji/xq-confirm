@@ -19,8 +19,8 @@
 		"dev": "vite serve src/",
 		"html": "vite build src/",
 		"build": "npx unbuild && npm run convert && npm run min && npx xq-banner",
-		"convert": "rollup ./dist/index.cjs --format iife --file ./dist/xq-confirm.js",
-		"min": "uglifyjs ./dist/xq-confirm.js -m -o ./dist/xq-confirm.min.js"
+		"convert": "esbuild ./src/ts/index.ts --outfile=./dist/js/xq-confirm.js --bundle",
+		"min": "uglifyjs ./dist/js/xq-confirm.js -m -o ./dist/js/xq-confirm.min.js"
 	},
 	"repository": {
 		"type": "git",
@@ -41,6 +41,7 @@
 		"@popperjs/core": "^2.11.6",
 		"bootstrap": "^5.2.3",
 		"bootstrap-icons": "^1.10.3",
+		"xq-banner": "^1.0.9",
 		"xq-util": "^1.0.1"
 	},
 	"devDependencies": {
@@ -53,7 +54,6 @@
 		"unbuild": "^1.1.1",
 		"vite": "^4.1.1",
 		"vite-plugin-xq-cp-dep": "^1.0.5",
-		"vite-plugin-xq-include": "^1.0.18",
-		"xq-banner": "^1.0.8"
+		"vite-plugin-xq-include": "^1.0.18"
 	}
 }
