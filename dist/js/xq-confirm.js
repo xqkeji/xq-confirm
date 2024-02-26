@@ -1,4 +1,10 @@
-"use strict";
+/*!
+ * xq-confirm v1.0.10 (https://xqkeji.cn/demo/xq-confirm)
+ * Author xqkeji.cn
+ * LICENSE SSPL-1.0
+ * Copyright 2024 xqkeji.cn
+ */
+ "use strict";
 (() => {
   // src/ts/xq-option.ts
   var template = '<div id="xq-bs-modal" class="modal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"><i></i><span>title</span></h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>Modal content.</p></div><div class="modal-footer"></div></div></div></div>';

@@ -1,8 +1,8 @@
 /*!
- * xq-confirm v1.0.9 (https://xqkeji.cn/demo/xq-confirm)
+ * xq-confirm v1.0.10 (https://xqkeji.cn/demo/xq-confirm)
  * Author xqkeji.cn
  * LICENSE SSPL-1.0
- * Copyright 2023 xqkeji.cn
+ * Copyright 2024 xqkeji.cn
  */
  import { append } from 'xq-util';
 
