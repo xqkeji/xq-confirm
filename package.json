@@ -1,6 +1,6 @@
 {
 	"name": "xq-confirm",
-	"version": "1.0.10",
+	"version": "1.0.9",
 	"description": "基于Bootstrap5的Modal组件实现确认提示框，支持确认按钮、取消按钮的回调，同时也可以自动确认和自动取消，不依赖Jquery库文件和Vue、React等框架技术。",
 	"files": [
 		"dist"
@@ -52,7 +52,7 @@
 		"typescript": "^4.9.5",
 		"uglify-js": "^3.17.4",
 		"unbuild": "^1.1.1",
-		"vite": "^4.1.1",
+		"vite": "^8.0.0",
 		"vite-plugin-xq-cp-dep": "^1.0.5",
 		"vite-plugin-xq-include": "^1.0.18"
 	}
