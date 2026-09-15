@@ -1,8 +1,16 @@
-"use strict";
-(() => {
-  // src/ts/xq-option.ts
-  var template = '<div id="xq-bs-modal" class="modal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"><i></i><span>title</span></h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>Modal content.</p></div><div class="modal-footer"></div></div></div></div>';
-  var DEFAULT_OPTIONS = {
+/*!
+ * xq-confirm v1.0.9 (https://xqkeji.cn/demo/xq-confirm)
+ * Author xqkeji.cn
+ * LICENSE SSPL-1.0
+ * Copyright 2023 xqkeji.cn
+ */
+ (function () {
+  'use strict';
+
+  const xqUtil = require('xq-util');
+
+  const template = '<div id="xq-bs-modal" class="modal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"><i></i><span>title</span></h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>Modal content.</p></div><div class="modal-footer"></div></div></div></div>';
+  const DEFAULT_OPTIONS = {
     id: "xq-bs-modal",
     type: "alert",
     size: "modal-sm",
@@ -25,8 +33,8 @@
     autoClose: false
     // confirm|3000表示3秒后自动确认，cancel|3000表示3秒后自动取消
   };
-  var confirmOptions = {};
-  var setOption = (options = {}) => {
+  let confirmOptions = {};
+  const setOption = (options = {}) => {
     confirmOptions = Object.assign({}, DEFAULT_OPTIONS);
     if (options) {
       for (const option in options) {
@@ -36,7 +44,7 @@
       }
     }
   };
-  var getOption = (key) => {
+  const getOption = (key) => {
     if (key in confirmOptions) {
       return confirmOptions[key];
     }
@@ -48,29 +56,22 @@
     return "";
   };
 
-  // node_modules/xq-util/dist/index.mjs
-  var append = (element, dom) => {
-    const node = document.createRange().createContextualFragment(dom);
-    element.append(node);
-  };
-
-  // src/ts/xq-build.ts
-  var ICONS = {
+  const ICONS = {
     info: "bi bi-info-circle-fill link-primary",
     warn: "bi bi-info-circle-fill link-warning",
     error: "bi bi-info-circle-fill link-danger"
   };
-  var getIcon = (icon) => {
+  const getIcon = (icon) => {
     if (Object.prototype.hasOwnProperty.call(ICONS, icon)) {
       return ICONS[icon];
     } else {
       return icon;
     }
   };
-  var build = (options = {}) => {
+  const build = (options = {}) => {
     setOption(options);
-    const template2 = getOption("template");
-    append(document.body, template2);
+    const template = getOption("template");
+    xqUtil.append(document.body, template);
     const id = getOption("id");
     const xq_bs_modal = document.querySelector("#" + id);
     if (xq_bs_modal) {
@@ -103,7 +104,7 @@
           if (type !== "alert") {
             const cancelButtonClass = getOption("cancelButtonClass");
             const cancelButton = getOption("cancelButton");
-            append(footer, '<button id="xq-bs-modal-cancel" type="button" class="btn ' + cancelButtonClass + '" data-bs-dismiss="modal">' + cancelButton + "</button>");
+            xqUtil.append(footer, '<button id="xq-bs-modal-cancel" type="button" class="btn ' + cancelButtonClass + '" data-bs-dismiss="modal">' + cancelButton + "</button>");
             const cancel = footer.querySelector("#xq-bs-modal-cancel");
             cancel?.addEventListener("click", (event) => {
               event.preventDefault();
@@ -116,7 +117,7 @@
           }
           const confirmButtonClass = getOption("confirmButtonClass");
           const confirmButton = getOption("confirmButton");
-          append(footer, '<button id="xq-bs-modal-confirm" type="button" class="btn ' + confirmButtonClass + '">' + confirmButton + "</button>");
+          xqUtil.append(footer, '<button id="xq-bs-modal-confirm" type="button" class="btn ' + confirmButtonClass + '">' + confirmButton + "</button>");
           const confirm = footer.querySelector("#xq-bs-modal-confirm");
           confirm?.addEventListener("click", (event) => {
             event.preventDefault();
@@ -144,10 +145,10 @@
             const countdown = '<span class="countdown"> (' + seconds + ")</span>";
             if (btn === "confirm") {
               autoCloseBtn = footer.querySelector("#xq-bs-modal-confirm");
-              append(autoCloseBtn, countdown);
+              xqUtil.append(autoCloseBtn, countdown);
             } else {
               autoCloseBtn = footer.querySelector("#xq-bs-modal-cancel");
-              append(autoCloseBtn, countdown);
+              xqUtil.append(autoCloseBtn, countdown);
             }
             xq_bs_modal.addEventListener("show.bs.modal", () => {
               autoCloseInterval = setInterval(function() {
@@ -169,20 +170,11 @@
     }
   };
 
-  // src/ts/index.ts
-  var xqConfirm = (options = {}) => {
+  const xqConfirm = (options = {}) => {
     build(options);
   };
   window.xqConfirm = xqConfirm;
-  var ts_default = xqConfirm;
-})();
-/*! Bundled license information:
 
-xq-util/dist/index.mjs:
-  (*!
-   * xq-util v1.0.1 (http://xqkeji.cn/)
-   * Author xqkeji.cn
-   * LICENSE SSPL-1.0
-   * Copyright 2023 xqkeji.cn
-   *)
-*/
+  module.exports = xqConfirm;
+
+})();
