@@ -55,6 +55,6 @@
     "vite": "^8.0.0",
     "vite-plugin-xq-cp-dep": "^1.0.5",
     "vite-plugin-xq-include": "^1.0.18",
-    "esbuild": "^0.16.17"
+    "esbuild": "^0.27.0"
   }
 }
